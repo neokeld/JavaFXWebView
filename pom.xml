@@ -61,6 +61,7 @@
                 <include>**/*.fxml</include>
                 <include>**/*.css</include>
                 <include>**/*.png</include>
+                <include>**/*.html</include>
             </includes>             
         </resource>
     </resources>
