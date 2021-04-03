@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>in.dema</groupId>
+  <artifactId>webview</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>webview</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>16</maven.compiler.source>
+    <maven.compiler.target>16</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!-- GUI -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>16</version>
+    </dependency>
+        <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>16</version>
+    </dependency>
+    
+    <!-- WebView -->
+    <dependency>
+	    <groupId>org.openjfx</groupId>
+	    <artifactId>javafx-web</artifactId>
+	    <version>16</version>
+	</dependency>
+    
+    <!-- Logs -->
+	<dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.5</version>
+        <configuration>
+          <executable>C:\Program Files\AdoptOpenJDK\jdk-16.0.0.36-hotspot\bin\java</executable>
+          <mainClass>webview.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+        <resource>
+            <filtering>false</filtering>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.fxml</include>
+                <include>**/*.css</include>
+                <include>**/*.png</include>
+            </includes>             
+        </resource>
+    </resources>
+  </build>
+</project>
