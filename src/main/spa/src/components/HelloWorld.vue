@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button v-on:click="callJava">Call Java</button>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -90,6 +91,11 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods: {
+    callJava: function () {
+      window.callFromJs.doIt()
+    }
   }
 }
 </script>
@@ -109,5 +115,16 @@ li {
 }
 a {
   color: #42b983;
+}
+button {
+  background-color: #42b983;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 24px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
 }
 </style>
