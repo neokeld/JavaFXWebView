@@ -44,6 +44,32 @@
   <build>
     <plugins>
       <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-resources-plugin</artifactId>
+		<version>3.2.0</version>
+		<executions>
+		    <execution>
+		        <id>copy-resources</id>
+		        <phase>process-resources</phase>
+		        <goals>
+		            <goal>copy-resources</goal>
+		        </goals>
+		        <configuration>
+		            <outputDirectory>${basedir}/src/main/java/webview</outputDirectory>
+		            <resources>
+		                <resource>
+		                    <directory>${basedir}/src/main/spa/dist</directory>
+		                    <includes>
+		                        <include>index.html</include>
+		                        <include>**/*</include>
+		                    </includes>
+		                </resource>
+		            </resources>
+		        </configuration>
+		    </execution>
+		</executions>
+      </plugin>
+      <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.5</version>
