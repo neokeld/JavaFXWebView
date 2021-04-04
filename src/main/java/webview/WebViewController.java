@@ -1,6 +1,5 @@
 package webview;
 
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
@@ -21,16 +20,13 @@ public class WebViewController
         WebEngine engine = webView.getEngine();
         // expose Java object to Javascript in the JavaFX WebView
         engine.getLoadWorker().stateProperty().addListener(
-        	    new ChangeListener<Worker.State>() {
-        	        @Override
-        	        public void changed(ObservableValue<? extends Worker.State> observable, Worker.State oldState, Worker.State newState) {
-        	            if (newState != Worker.State.SUCCEEDED) { return; }
+    	    (ObservableValue<? extends Worker.State> observable, Worker.State oldState, Worker.State newState) -> {
+	            if (newState != Worker.State.SUCCEEDED) { return; }
 
-        	            JSObject window = (JSObject) engine.executeScript("window");
-        	            window.setMember("callFromJs", new CallFromJs());
-        	        }
-        	    }
-        	);
+	            JSObject window = (JSObject) engine.executeScript("window");
+	            window.setMember("callFromJs", new CallFromJs());
+    	    }
+        );
         //engine.load("http://www.example.org"); // Load a Web Page
         engine.load(fullLink); // Load Local Content
     }
