@@ -5,6 +5,7 @@
 This project is : 
 * Maven + JavaFX + Openjdk 16 + Eclipse
 * an example with a WebView
+* with a demonstration of an interaction between Javascript in the WebView and a Java object (click on Call Java and see your Eclipse console)
 * with custom css & borderless window
 * resize and drag and drop of the window
 * a window close button
